@@ -1,4 +1,4 @@
-<form class="card">
+<form class="card mb-4">
   <div class="m-4">
     <h3>New Order</h3>
     <div class="mb-2">
@@ -11,6 +11,7 @@
     </button>
   </div>
   <button type="button" class="btn btn-primary m-2" onclick="sendOrder()">Save Order</button>
+  <a href="/" class="btn btn-secondary m-2">Back</a>
 </form>
 
 <!-- Modal -->
@@ -23,7 +24,7 @@
       </div>
       <div class="modal-body">
         <select id="selectOfProducts" class="form-select" aria-label="Default select example">
-          <option selected></option>
+          <option selected>Select the product</option>
           @for (product of products; track product.id) {
           <option value={{product.id}} label={{product.name}}>{{product.name}}</option>
           }
@@ -36,8 +37,6 @@
     </div>
   </div>
 </div>
-
-<app-modal-product></app-modal-product>
 
 <div>
   <h3>Products</h3>
@@ -68,4 +67,5 @@
       }
     </tbody>
   </table>
+  <app-modal-product></app-modal-product>
 </div>
