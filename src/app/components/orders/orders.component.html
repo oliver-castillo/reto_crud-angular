@@ -1,0 +1,32 @@
+<a href="/add-order" class="btn btn-secondary mb-4">Add order</a>
+<table class="table">
+  <caption>Orders</caption>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col"># ORDER</th>
+      <th scope="col">PRODUCTS #</th>
+      <th scope="col">DATE</th>
+      <!--<th scope="col">FINAL PRICE</th>
+       <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+  <tbody>
+    @for (order of ordersResults$; track order.id) {
+    <tr>
+      <td>{{order.id}}</td>
+      <td>{{order.orderNumber}}</td>
+      <td>{{order.numberOfProducts}}</td>
+      <td>{{order.date}}</td>
+      <!-- <td>{{order.finalPrice}}</td>
+      <th>
+        <a href=""></a>
+      </th>
+      <th>
+        <a href=""></a>
+      </th> -->
+    </tr>
+    }
+  </tbody>
+</table>

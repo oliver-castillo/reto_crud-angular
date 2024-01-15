@@ -1,0 +1,71 @@
+<form class="card">
+  <div class="m-4">
+    <h3>New Order</h3>
+    <div class="mb-2">
+      <span>Selected Products:</span>
+      <ul class="list-group" id="listOfProducts">
+      </ul>
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add products
+    </button>
+  </div>
+  <button type="button" class="btn btn-primary m-2" onclick="sendOrder()">Save Order</button>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Products</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <select id="selectOfProducts" class="form-select" aria-label="Default select example">
+          <option selected></option>
+          @for (product of products; track product.id) {
+          <option value={{product.id}} label={{product.name}}>{{product.name}}</option>
+          }
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+          onclick="addProductToList()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal-product></app-modal-product>
+
+<div>
+  <h3>Products</h3>
+  <table class="table" id="tableProducts">
+    <caption>Products</caption>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Unit Price</th>
+        <!-- <th></th>
+        <th></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product.id) {
+      <tr>
+        <th>{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.unitPrice}}</td>
+        <!-- <td>
+          <a href="" data-bs-toggle="modal" data-bs-target="#modalProduct">Edit</a>
+        </td>
+        <td>
+          <a href="">Delete</a>
+        </td> -->
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
