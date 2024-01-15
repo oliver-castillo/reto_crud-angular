@@ -7,7 +7,8 @@ import { Order } from '../../models/Order';
   providedIn: 'root',
 })
 export class OrderService {
-  baseUrl = 'http://localhost:8080/orders';
+  //baseUrl = 'http://localhost:8080/orders';
+  baseUrl = 'https://retocrud-java-spring-production.up.railway.app/orders';
 
   constructor(private http: HttpClient) {}
 

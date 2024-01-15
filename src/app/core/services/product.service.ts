@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  baseUrl = 'http://localhost:8080/products';
-  
+  //baseUrl = 'http://localhost:8080/products';
+  baseUrl = 'https://retocrud-java-spring-production.up.railway.app/products';
+
   constructor(private http: HttpClient) {}
 
   getAllProducts(): Observable<Product[]> {

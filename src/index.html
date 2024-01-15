@@ -31,7 +31,8 @@
       name: name.value,
       unitPrice: unitPrice.value,
     };
-    fetch('http://localhost:8080/products', {
+    let baseUrl = 'https://retocrud-java-spring-production.up.railway.app/products';
+    fetch(baseUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -55,59 +56,23 @@
 </script>
 
 <script>
-  /*var selectedProductsList = []
-   function addProductToList () {
-     const selectOfProducts = document.getElementById('selectOfProducts');
-     const selectedProduct = selectOfProducts.value;
- 
-     if (!selectedProductsList.includes(selectedProduct)) {
-       selectedProductsList.push(selectedProduct);
-     }
-     showProductsInList(selectedProductsList)
-     console.log(selectedProductsList)
-   }
- 
- 
-   function showProductsInList (selectedProductsList) {
-     var listElements = document.getElementById("listOfProducts");
-     listElements.innerHTML = "";
-     selectedProductsList.forEach(function (value) {
-       var listItem = document.createElement("li");
-       listItem.classList.add("list-group-item");
-       listItem.textContent = value;
-       listElements.appendChild(listItem);
-     });
-   }*/
   function addProductToList () {
-    // Obtener el elemento select por su ID
     var selectOfProducts = document.getElementById("selectOfProducts");
-
-    // Obtener el índice de la opción seleccionada
     var selectedIndex = selectOfProducts.selectedIndex;
-
-    // Obtener el valor y el texto de la opción seleccionada
     var selectedValue = selectOfProducts.options[selectedIndex].value;
     var selectedText = selectOfProducts.options[selectedIndex].textContent;
 
     if (!elementAlreadyExistsInList(selectedValue)) {
-      // Crear un nuevo elemento <li>
       var newLi = document.createElement("li");
-
-      // Establecer el ID del nuevo <li> como el valor seleccionado
       newLi.id = selectedValue;
-
-      // Establecer el contenido del nuevo <li> como el texto seleccionado
       newLi.textContent = selectedText;
       newLi.classList.add("list-group-item");
-
-      // Agregar el nuevo <li> a la lista
       document.getElementById("listOfProducts").appendChild(newLi);
     } else {
       alert("The product is already in the list of products")
     }
   }
   function elementAlreadyExistsInList (value) {
-    // Verificar si un elemento con el mismo id ya existe en la lista
     return document.getElementById(value) !== null;
   }
 </script>
@@ -118,7 +83,8 @@
     var formData = {
       products: getProductsArray()
     };
-    fetch('http://localhost:8080/orders', {
+    let baseUrl = 'https://retocrud-java-spring-production.up.railway.app/orders';
+    fetch(baseUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
